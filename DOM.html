@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Assignment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f0ff; /* Light lavender background */
+      color: #4a148c; /* Dark purple text */
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #6a1b9a; /* Dark purple */
+    }
+    p {
+      color: #4a148c; /* Dark purple */
+    }
+    .result {
+      font-weight: bold;
+      color: #ffd700; /* Golden text */
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Assignment</h1>
+  <p>Learning JavaScript is fun!</p>
+  <div id="dynamic-content"></div>
+
+  <h2>Part 1: JavaScript Basics</h2>
+  <div id="part1"></div>
+
+  <h2>Part 2: JavaScript Control Structures</h2>
+  <div id="part2"></div>
+
+  <h2>Part 3: Introduction to the DOM</h2>
+  <div id="part3"></div>
+
+  <script>
+    // Part 1: JavaScript Basics
+    // Variables and Data Types
+    const name = "John Doe"; // string
+    const age = 25; // number
+    const isStudent = true; // boolean
+    const hobbies = ["reading", "coding", "gaming"]; // array
+    const person = { name: "John", age: 25 }; // object
+
+    console.log(`Name: ${name} (Type: ${typeof name})`);
+    console.log(`Age: ${age} (Type: ${typeof age})`);
+    console.log(`Is student: ${isStudent} (Type: ${typeof isStudent})`);
+    console.log(`Hobbies: ${hobbies} (Type: ${typeof hobbies})`);
+    console.log(`Person: ${JSON.stringify(person)} (Type: ${typeof person})`);
+
+    // Operators: Simple Calculator
+    const num1 = parseFloat(prompt("Enter the first number:"));
+    const num2 = parseFloat(prompt("Enter the second number:"));
+    const operation = prompt("Choose an operation (+, -, *, /):");
+
+    let result;
+    if (operation === "+") {
+      result = num1 + num2;
+    } else if (operation === "-") {
+      result = num1 - num2;
+    } else if (operation === "*") {
+      result = num1 * num2;
+    } else if (operation === "/") {
+      result = num1 / num2;
+    } else {
+      result = "Invalid operation!";
+    }
+
+    console.log(`Result: ${result}`);
+    document.getElementById("part1").innerHTML = `<p class="result">Result: ${result}</p>`;
+
+    // Functions: greetUser
+    function greetUser(name) {
+      return `Hello, ${name}! Welcome to the JavaScript world.`;
+    }
+
+    const greeting = greetUser("Samuel");
+    document.getElementById("part1").innerHTML += `<p>${greeting}</p>`;
+
+    // Part 2: JavaScript Control Structures
+    // If Statements: Voting Eligibility
+    const userAge = parseInt(prompt("Enter your age:"));
+    let eligibilityMessage;
+    if (userAge >= 18) {
+      eligibilityMessage = "You are eligible to vote!";
+    } else {
+      eligibilityMessage = "You are not eligible to vote yet.";
+    }
+
+    document.getElementById("part2").innerHTML = `<p>${eligibilityMessage}</p>`;
+
+    // Loops: Display Numbers 1 to 10
+    let numbersList = "<ol>";
+    for (let i = 1; i <= 10; i++) {
+      numbersList += `<li>${i}</li>`;
+    }
+    numbersList += "</ol>";
+
+    document.getElementById("part2").innerHTML += numbersList;
+
+    // Part 3: Introduction to the DOM
+    // Changing the <h1> text
+    document.querySelector("h1").textContent = "JavaScript in Action!";
+
+    // Adding a new <p> to the dynamic-content <div>
+    const dynamicContent = document.getElementById("dynamic-content");
+    dynamicContent.innerHTML = "<p>This content was added dynamically using JavaScript.</p>";
+  </script>
+</body>
+</html>
